@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 Welcome to Steaming
+    a(href="/create") Create a Steamer   
+    br   
+    h2 Recent Steamers
+    div
+    for steamer in steamers
+        div
+            h2
+                a(href="/steamers/" + steamer.permalinkKey)=steamer.title
+            p=steamer.content.substring(0, 597) + "..."
+            small Posted #{steamer.dateCreated} by #{steamer.author}
+        hr
